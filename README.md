@@ -36,4 +36,7 @@ The administration gui to add and edit polls, monitor users and show polling res
 
 	http://localhost:43210/#!/admin/
 
+#### Thanks
+Thanks a lot to Louis Chatriot for the very cool NeDB (<https://github.com/louischatriot/nedb>)!
+
 
