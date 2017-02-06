@@ -1,0 +1,21 @@
+{
+  "name": "polling-expres",
+  "description": "Polling Express",
+  "main": "",
+  "authors": [
+    "Markus Emmenegger"
+  ],
+  "license": "none",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-schema-form": "~0.8.13"
+  }
+}

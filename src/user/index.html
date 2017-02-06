@@ -1,0 +1,90 @@
+<div data-ng-controller="UserController as userController">
+	<H1>{{userController.sessionTitle}}</H1>
+	<H2>
+		User {{userController.userId}} <em data-ng-if="userController.online">
+			(Online)</em><em class="text-danger" data-ng-hide="userController.online">
+			(Offline)</em>
+	</H2>
+
+	<div class="row">
+		<div class="col-md-12" data-ng-hide="userController.userIdentified">
+
+			<form role="form" class="form-horizontal" name="loginForm"
+				ng-submit="userController.login()" novalidate>
+				<div class="form-group"
+					data-ng-class="{ 'has-error' : loginForm.inputUserId.$invalid && !loginForm.inputUserId.$pristine }">
+					<label for="inputUserId" class="control-label col-sm-2">User
+						ID:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="inputUserId"
+							name="inputUserId" data-ng-model="userController.userId"
+							placeholder="User Id" autofocus required
+							data-ng-pattern="/^[0-9]+$/">
+						<div data-ng-messages="loginForm.$error" class="help-block"
+							data-ng-show="loginForm.inputUserId.$invalid && !loginForm.inputUserId.$pristine">
+							<div data-ng-message="pattern">Enter valid user id</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-sm btn-primary"
+						data-ng-click="userController.login()">Log in</button>
+				</div>
+			</form>
+
+
+
+		</div>
+	</div>
+
+	<div class="row" data-ng-show="userController.online && (!userController.activePolls || userController.activePolls.length ==0 )">
+
+		<div class="col-md-12">
+			<h1>
+				<em>Waiting for questions.<span data-ng-show="userController.toggler">..</span></em>
+			</h1>
+		</div>
+
+	</div>
+
+	<div data-ng-repeat="poll in userController.activePolls">
+
+		<form class="form well" role="form">
+			<h1>{{poll.title}}</h1>
+			
+			<div class="row top-buffer" data-ng-repeat="pollOption in poll.options" data-ng-show="!poll.alreadyVoted || userController.pollResults[poll._id] == pollOption.id">
+			<div class="col-md-12">
+				<span data-ng-show="!poll.alreadyVoted || userController.pollResults[poll._id] == pollOption.id"> <em data-ng-show="poll.alreadyVoted">you voted:</em> </span>					
+					<button data-ng-class = "{active:userController.pollResults[poll._id] == pollOption.id }" data-ng-show="!poll.alreadyVoted || userController.pollResults[poll._id] == pollOption.id" data-ng-disabled="poll.alreadyVoted"
+						class="btn btn-lg btn-primary btn-block"
+						data-ng-click="userController.onSelectPollOption(poll._id,pollOption.id)">{{pollOption.text}}</button>				
+			</div>
+			</div>
+			
+			<div class="row top-buffer">
+			<div class="col-md-12">			
+				<button type="submit" class="btn btn-lg btn-success btn-block"
+					data-ng-disabled="poll.alreadyVoted || (userController.pollResults[poll._id] == null) " data-ng-hide="poll.alreadyVoted"
+					data-ng-click="userController.vote(poll._id)">Vote</button>
+			</div>
+			</div>
+
+		</form>
+
+	</div>
+	<!-- <div class="row" data-ng-show="userController.userIdentified">
+		<div class="col-md-1">
+			<button type="submit" class="btn btn-sm btn-primary"
+				data-ng-click="userController.onLogout()">Logout</button>
+		</div>
+	</div> -->
+	<div class="row" data-ng-show="userController.userIdentified">
+		<div class="col-md-9">
+			
+		</div>
+		<div class="col-md-3">
+			<em class="h6">pollingexpress by Markus Emmenegger</em>
+		</div>
+	</div>
+
+</div>

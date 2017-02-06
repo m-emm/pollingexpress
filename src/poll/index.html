@@ -1,0 +1,27 @@
+<div  ng-controller="LocationsController as pollController" >
+<H1>Poll</H1>
+Label: {{locationsController.label}}
+<p>
+Text: <input type="text" ng-model="locationsController.text">
+<p>
+<button ng-click="locationsController.store()">Store</button>
+<p>
+<button ng-click="locationsController.load()">Load</button>
+
+<p>
+<button ng-click="locationsController.loadAll()">Load All</button>
+<p>
+<button ng-click="locationsController.onNew()">New</button>
+<p>
+<div ng-show="locationsController.editingId">
+<em>{{locationsController.editingId}}</em>
+  <form name="locationForm" ng-submit="locationsController.onSubmit(locationForm)" sf-schema="locationsController.schema" sf-form="locationsController.form" sf-model="locationsController.model"></form>
+ 
+</div>
+<p>
+<ul>
+<li ng-repeat="row in locationsController.loaded"><a ng-click="locationsController.onEdit(row._id)">{{row.name}} </a></li>
+</ul>
+
+
+</div>

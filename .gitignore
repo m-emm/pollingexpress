@@ -1,0 +1,14 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+target
+npm-debug.log
+static
+.settings
+.externalToolBuilders
+/versioninfo.json
+/npm-debug.log*
+.project
+.tern-project

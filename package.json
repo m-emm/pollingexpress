@@ -1,0 +1,73 @@
+{
+  "name": "polling-express",
+  "version": "0.0.1",
+  "description": "Polling Express",
+  "author": "Markus Emmenegger <markus@emmenegger.net>",
+  "contributors": [],
+  "scripts": {
+    "fullbuild": "npm install && bower --allow-root install && webpack --config webpack.config.js",
+    "start": "node server.js",
+    "clean": "node clean.js",
+    "build": "webpack --config webpack.config.js",
+    "build:dev": "webpack --config webpack.config.dev.js",
+    "build:dev:watch": "webpack --config webpack.config.dev.js --watch",
+    "test": "karma start",
+    "test:dev": "karma start --no-single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": "http://jira..."
+  },
+  "keywords": [],
+  "dependencies": {
+    "angular": "^1.4.10",
+    "angular-resource": "^1.6.1",
+    "angular-route": "^1.4.10",
+    "bootstrap": "3.3.7",
+    "connect-gzip-static": "^1.0.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "jquery": "3.1.1",
+    "moment": "^2.17.1",
+    "nedb": "^1.8.0",
+    "objectpath": "^1.2.1",
+    "tv4": "^1.2.7"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.12",
+    "babel-loader": "^5.3.2",
+    "compression-webpack-plugin": "^0.3.2",
+    "css-loader": "^0.26.1",
+    "debug-webpack-plugin": "^0.1.0",
+    "ejs-loader": "^0.3.0",
+    "extract-loader": "^0.1.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "fs-extra": "^0.30.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.24.1",
+    "html-webpack-template": "^5.5.0",
+    "indexhtml-webpack-plugin": "^0.1.9",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "lodash": "^4.14.1",
+    "node-sass": "^3.13.0",
+    "raw-loader": "^0.5.1",
+    "recursive-readdir": "^2.1.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-shell-plugin": "^0.4.3"
+  },
+  "preferGlobal": true,
+  "private": true,
+  "license": "none"
+}

@@ -1,0 +1,48 @@
+<div data-ng-controller="ResultsCtrl as resultsController">
+	<H1>Results</H1>
+	<div class="row" data-ng-hide="resultsController.results && resultsController.results.length>0">
+	<div class="col-md-12">
+	<em>Waiting for results..</em>
+	</div>
+	</div>
+	<div class="row well" data-ng-repeat="result in resultsController.results">
+		<div class="col-md-12">
+			<h1>{{result.poll.title}}</h1>
+			<table class="table h3" data-ng-show="result.poll.showResults">
+				<thead>
+					<tr>
+						<th>Option</th>
+						<th>Number of Votes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="tally in result.tally">
+						<td>{{tally.text}}</td>
+						<td><div data-ng-style="tally.style">{{tally.numVotes}}</div></td>
+						
+					</tr>
+					<tr><td><b> Total:</b>  </td><td><b>{{result.totalVotes}}</b></td></tr>
+				</tbody>
+			</table>
+			
+			<table class="table h3" data-ng-hide="result.poll.showResults">
+				<thead>
+					<tr>
+						<th >Total Votes</th>
+						<th>Users Online</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr >
+						<td><div data-ng-style="result.numVoteStyle">{{result.numVotes}}</div></td>
+						<td>{{result.numOnlineUsers}}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+
+
+
+	</div>
+</div>
